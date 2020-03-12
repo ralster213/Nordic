@@ -1,0 +1,299 @@
+//
+//  ViewController.swift
+//  NordicPractice
+//
+//  Created by 90305007 on 3/4/20.
+//  Copyright © 2020 90305007. All rights reserved.
+//
+
+import UIKit
+import AVFoundation
+class Captin {
+    var name: String;
+    var phoneNumber: String;
+    var picture: String;
+    var emailAddress: String;
+    
+    
+    init(name: String, phoneNumber: String, picture: String, emailAddress: String) {
+        self.name = name;
+        self.phoneNumber = phoneNumber;
+        self.picture = picture;
+        self.emailAddress = emailAddress;
+    }
+    
+}
+class Announce {
+    var title: String;
+    var time: String;
+    var message: String;
+    
+    init(title: String, time: String, message: String){
+        self.title = title;
+        self.time = time;
+        self.message = message;
+    }
+    
+}
+
+class ViewController: UIViewController, UITextFieldDelegate {
+    
+    @IBOutlet weak var nameLabel: UILabel?
+    @IBOutlet weak var phoneNumberLabel: UILabel?
+    @IBOutlet weak var emailAddressLabel: UILabel?
+    @IBOutlet weak var picturePath: UIImageView!
+    
+    @IBOutlet weak var cap1Look: UIButton!
+    @IBOutlet weak var cap2Look: UIButton!
+    @IBOutlet weak var cap3Look: UIButton!
+    @IBOutlet weak var cap4Look: UIButton!
+    @IBOutlet weak var cap5Look: UIButton!
+    @IBOutlet weak var cap6Look: UIButton!
+    var pianoSound = NSURL(fileURLWithPath: Bundle.main.path(forResource: "Bruh", ofType: "wav")!);
+    var YMessage = 0.0
+    
+    var time = 10
+    var nextField = UITextField(frame: CGRect(x: 10.0, y: 100.0, width: UIScreen.main.bounds.size.width - 20.0, height: 50.0))
+    var highScore = 0
+    var doStart = true
+    var countBruh = false
+    
+    @IBOutlet weak var timeCount: UILabel!
+    @IBOutlet weak var hitTheBruh: UILabel!
+    @IBOutlet weak var highScoreLabel: UILabel!
+    
+    var audioPlayer = AVAudioPlayer()
+   
+    var audioPlayer2 = AVAudioPlayer()
+    
+    @IBOutlet weak var bruhCounter: UILabel!
+    
+    var bruhCount = 0
+    static var announcements: Array<Announce> = []
+    static var captains: Array<Captin> = [
+    Captin(name: "Connor Holm", phoneNumber: "612-696-6969", picture: "ConnorPic", emailAddress: "connorholm@email.com"),
+    Captin(name: "Ethan Koland", phoneNumber: "612-696-6969", picture: "KolandPic", emailAddress: "ethankoland@email.com"),
+    Captin(name: "Mason Martin", phoneNumber: "612-696-6969", picture: "MasonPic", emailAddress: "masonmartin@email.com"),
+    Captin(name: "Ella Bakken", phoneNumber: "612-696-6969", picture: "ConnorPic", emailAddress: "ellabakken@email.com"),
+    Captin(name: "Silje Busklein", phoneNumber: "612-696-6969", picture: "fdsiofsd", emailAddress: "siljebusklein@email.com"),
+    Captin(name: "Ella Williams", phoneNumber: "612-696-6969", picture: "fdsiofsd", emailAddress: "ellawilliams@email.com")
+    ]
+    
+    override func viewDidLoad() {
+      // cap1Look.titleLabel?.text = ViewController.captains[0].name
+        super.viewDidLoad()
+      
+        
+        nameLabel?.text = "Name: " + MyVariables.capName
+        phoneNumberLabel?.text = "Phone Number: " + MyVariables.capPhone
+        emailAddressLabel?.text = "Email: " + MyVariables.capEmail
+        print(MyVariables.capPicture)
+        //picturePath.image = UIImage(named: "ConnorPic")
+        print("hola")
+        print(nameLabel?.text)
+        if(MyVariables.doStuff == true){
+            
+            picturePath.image = UIImage(named: MyVariables.capPicture)
+        }
+        MyVariables.doStuff = false
+        
+        // Do any additional setup after loading the view.
+    }
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    @IBAction func bruhButton(_ sender: Any) {
+        do{
+        print("hi")
+        audioPlayer = try AVAudioPlayer(contentsOf: pianoSound as URL)
+        audioPlayer.play()
+            if countBruh == true{
+            bruhCount += 1
+            bruhCounter.text = String(bruhCount)
+            }
+        }
+        catch{
+            
+        }
+        
+    }
+    
+    @IBAction func startPress(_ sender: Any) {
+       //let
+        
+        if doStart == true{
+            hitTheBruh.text = "Hit The Bruh Button!"
+            bruhCount = 0
+            timeCount.text = "Time: 10"
+            bruhCounter.text = "0"
+            self.time = 10
+            doStart = false
+            countBruh = true
+        let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+            print("timer Fired")
+            self.time -= 1
+            self.timeCount.text = "Time: " + String(self.time)
+            if self.time == 0{
+                self.timeCount.text = "Time's Up!"
+                self.bruhCounter.text = "Your Score is " + String(self.bruhCount) + "!"
+                if self.bruhCount > self.highScore {
+                    self.highScore = self.bruhCount
+                    self.timeCount.text = "New High Score!"
+                    self.highScoreLabel.text = "High Score: " + String(self.highScore)
+                    
+                }
+                timer.invalidate()
+                self.doStart = true
+                self.countBruh = false
+                self.hitTheBruh.text = ""
+               do{
+                self.audioPlayer2 = try AVAudioPlayer(contentsOf: MyVariables.bruhmusic as URL)
+                self.audioPlayer2.play()
+                   }
+                   catch{
+                   
+                   }
+            }
+            }
+            
+                
+            
+        }
+        
+        
+    }
+    @IBAction func Cap1Press(_ sender: Any) {
+        //func captain1
+        MyVariables.capCount = 1
+        MyVariables.doStuff = true
+        performSegue(withIdentifier: "Cap1Segue", sender: (Any).self)
+        
+        
+        
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let destVC = segue.destination as! ViewController
+        destVC.nameLabel?.text = "hello"
+        print("hi")
+        // stuff is nill in prepare for segue, but not view did load
+        if MyVariables.capCount == 1{
+            
+            MyVariables.capName = ViewController.captains[0].name
+            MyVariables.capPhone = ViewController.captains[0].phoneNumber
+            MyVariables.capEmail = ViewController.captains[0].emailAddress
+            MyVariables.capPicture = ViewController.captains[0].picture
+            //print(MyVariables.capPicture)
+        }
+        if MyVariables.capCount == 2{
+            
+            MyVariables.capName = ViewController.captains[1].name
+            MyVariables.capPhone = ViewController.captains[1].phoneNumber
+            MyVariables.capEmail = ViewController.captains[1].emailAddress
+            MyVariables.capPicture = ViewController.captains[1].picture
+        }
+        if MyVariables.capCount == 3{
+            
+            MyVariables.capName = ViewController.captains[2].name
+            MyVariables.capPhone = ViewController.captains[2].phoneNumber
+            MyVariables.capEmail = ViewController.captains[2].emailAddress
+            MyVariables.capPicture = ViewController.captains[2].picture
+        }
+        if MyVariables.capCount == 4{
+            
+            MyVariables.capName = ViewController.captains[3].name
+            MyVariables.capPhone = ViewController.captains[3].phoneNumber
+            MyVariables.capEmail = ViewController.captains[3].emailAddress
+            MyVariables.capPicture = ViewController.captains[3].picture
+        }
+        if MyVariables.capCount == 5{
+            
+            MyVariables.capName = ViewController.captains[4].name
+            MyVariables.capPhone = ViewController.captains[4].phoneNumber
+            MyVariables.capEmail = ViewController.captains[4].emailAddress
+            MyVariables.capPicture = ViewController.captains[4].picture
+        }
+        if MyVariables.capCount == 6{
+            
+            MyVariables.capName = ViewController.captains[5].name
+            MyVariables.capPhone = ViewController.captains[5].phoneNumber
+            MyVariables.capEmail = ViewController.captains[5].emailAddress
+            MyVariables.capPicture = ViewController.captains[5].picture
+        }
+        
+        
+    }
+    
+    
+    @IBAction func Cap2Press(_ sender: Any) {
+        //func captain2
+        MyVariables.capCount = 2
+        MyVariables.doStuff = true
+    }
+    
+    @IBAction func Cap3Press(_ sender: Any) {
+        //func captain3
+        MyVariables.capCount = 3
+        MyVariables.doStuff = true
+    }
+    
+    @IBAction func Cap4Press(_ sender: Any) {
+        //func captain4
+        MyVariables.capCount = 4
+        MyVariables.doStuff = true
+    }
+    
+    @IBAction func Cap5Press(_ sender: Any) {
+        MyVariables.capCount = 5
+        MyVariables.doStuff = true
+    }
+    
+    
+    @IBAction func Cap6Press(_ sender: Any) {
+        MyVariables.capCount = 6
+        MyVariables.doStuff = true
+    }
+    
+    
+    @IBAction func AddMessage(_ sender: Any) {
+        print("ok")
+        
+        nextField.backgroundColor = .red
+        nextField.borderStyle = .line
+        nextField.delegate = self
+        self.view.addSubview(nextField)
+        
+        //here is where I will try to make it so whenever I make a new prototype-announcement, new constraints come in to resize everything in the content view. When the plus button is clicked, I want a text field to appear. In the text field will be the contents of the next announcement. The contents of the text field, upon hitting return, will be added to a list of strings, that will be given to a series of text views. The text views will be added in upon hitting return
+        //The part I need to really get on is the whole constraint adding part.
+        //Need to learn how to make the "return" key a function, so that it can add the text field text to the text view.
+        
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        nextField.resignFirstResponder()
+        let textField = UITextView(frame: CGRect(x: 10.0, y: 150 + 60 * YMessage, width: Double(UIScreen.main.bounds.size.width - 20.0), height: 50.0))
+        textField.text = nextField.text
+        self.view.addSubview(textField)
+        nextField.text = ""
+        nextField.isOpaque = true
+        YMessage += 1
+        return true
+    }
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}
+
