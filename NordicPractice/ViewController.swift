@@ -77,7 +77,9 @@ class ViewController: UIViewController, UITextFieldDelegate, MFMessageComposeVie
     var audioPlayer2 = AVAudioPlayer()
     
     @IBOutlet weak var bruhCounter: UILabel!
-    
+    let goal1 = UserDefaults.standard
+    let goal2 = UserDefaults.standard
+    let goal3 = UserDefaults.standard
     var bruhCount = 0
     static var goals: Array<String> = []
     static var captains: Array<Captin> = [
@@ -333,6 +335,11 @@ class ViewController: UIViewController, UITextFieldDelegate, MFMessageComposeVie
         nextField.backgroundColor = .red
         nextField.borderStyle = .line
         nextField.delegate = self
+        if let text = goal1.object(forKey: "text") as? String {
+            print(goal1.object(forKey: "text"))
+        } else{
+            print("nothing saved")
+        }
         self.view.addSubview(nextField)
         
         //here is where I will try to make it so whenever I make a new prototype-announcement, new constraints come in to resize everything in the content view. When the plus button is clicked, I want a text field to appear. In the text field will be the contents of the next announcement. The contents of the text field, upon hitting return, will be added to a list of strings, that will be given to a series of text views. The text views will be added in upon hitting return
@@ -350,7 +357,9 @@ class ViewController: UIViewController, UITextFieldDelegate, MFMessageComposeVie
         nextField.text = ""
         nextField.isOpaque = true
         YMessage += 1
+        goal1.setValue(textField.text, forKey: "text")
         return true
+        
     }
     /*
     // MARK: - Navigation
