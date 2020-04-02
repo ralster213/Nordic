@@ -328,8 +328,6 @@ class ViewController: UIViewController, UITextFieldDelegate, MFMessageComposeVie
         print(ViewController.goals)
     }
     @IBAction func AddMessage(_ sender: Any) {
-        print("ok")
-        
         nextField.backgroundColor = .red
         nextField.borderStyle = .line
         nextField.delegate = self
