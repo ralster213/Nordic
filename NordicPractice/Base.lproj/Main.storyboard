@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Announcements-->
+        <!--Goals-->
         <scene sceneID="HPk-at-7RU">
             <objects>
                 <viewController id="zcK-gg-yEn" customClass="ViewController" customModule="NordicPractice" customModuleProvider="target" sceneMemberID="viewController">
@@ -42,12 +42,19 @@
                                     <color key="textColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="Announcements" id="0em-G8-bXK">
-                                        <barButtonItem key="rightBarButtonItem" title="+" id="VXq-eH-QxH">
-                                            <connections>
-                                                <action selector="AddMessage:" destination="zcK-gg-yEn" id="4XS-o9-jrQ"/>
-                                            </connections>
-                                        </barButtonItem>
+                                    <navigationItem title="Goals" id="0em-G8-bXK">
+                                        <rightBarButtonItems>
+                                            <barButtonItem title="+" id="VXq-eH-QxH">
+                                                <connections>
+                                                    <action selector="AddMessage:" destination="zcK-gg-yEn" id="4XS-o9-jrQ"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem title="-" id="r7s-oB-h6f">
+                                                <connections>
+                                                    <action selector="deleteGoal:" destination="zcK-gg-yEn" id="c90-ik-bXj"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -61,7 +68,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="b28-if-Ke5"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Announcements" image="speaker.3.fill" catalog="system" selectedImage="speaker.3.fill" id="Uvi-UB-RsB"/>
+                    <tabBarItem key="tabBarItem" title="Goals" image="lightbulb" catalog="system" selectedImage="lightbulb" id="Uvi-UB-RsB"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oTq-oT-Vx4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -70,7 +77,7 @@
         <!--Home-->
         <scene sceneID="DLo-wN-Xll">
             <objects>
-                <viewController id="BvW-wv-hzu" sceneMemberID="viewController">
+                <viewController id="BvW-wv-hzu" customClass="ViewController" customModule="NordicPractice" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ira-fY-tzX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -98,6 +105,17 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SkiingPic" translatesAutoresizingMaskIntoConstraints="NO" id="D7Z-kq-vBe">
                                 <rect key="frame" x="0.0" y="97" width="375" height="521"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ijJ-hi-Lr0">
+                                <rect key="frame" x="72" y="165" width="235" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Press to Watch Introductory Video">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="playVid:" destination="BvW-wv-hzu" eventType="touchUpInside" id="e56-HX-B1N"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -144,7 +162,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sc9-cH-5hA">
                                                 <rect key="frame" x="8" y="600" width="165" height="255"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Silje Busklein" image="BooniePic"/>
+                                                <state key="normal" title="Silje Busklein" image="BuskleinPic"/>
                                                 <connections>
                                                     <action selector="Cap5Press:" destination="blJ-2I-yRX" eventType="touchUpInside" id="cbc-dd-94v"/>
                                                     <action selector="Cap5Press:" destination="427-GP-M5i" eventType="touchUpInside" id="flG-kf-t2x"/>
@@ -165,7 +183,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wvA-FJ-1KN">
                                                 <rect key="frame" x="202" y="600" width="165" height="255"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Ella Williams" image="BooniePic"/>
+                                                <state key="normal" title="Ella Williams" image="WilliamsPic"/>
                                                 <connections>
                                                     <action selector="Cap6Press:" destination="blJ-2I-yRX" eventType="touchUpInside" id="kko-Ej-t8n"/>
                                                     <action selector="Cap6Press:" destination="427-GP-M5i" eventType="touchUpInside" id="zGR-hI-88n"/>
@@ -203,7 +221,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKB-tJ-21O">
                                                 <rect key="frame" x="202" y="304" width="165" height="255"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Ella Bakken" image="ConnorPic"/>
+                                                <state key="normal" title="Ella Bakken" image="BakkenPic"/>
                                                 <connections>
                                                     <action selector="Cap4Press:" destination="427-GP-M5i" eventType="touchUpInside" id="BJx-Qh-BMu"/>
                                                     <action selector="Cap4Press:" destination="blJ-2I-yRX" eventType="touchUpInside" id="jKo-kH-66j"/>
@@ -291,13 +309,31 @@
                                 <rect key="frame" x="67" y="64" width="240" height="239"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1sT-tx-6Bb">
+                                <rect key="frame" x="294" y="498" width="76" height="30"/>
+                                <state key="normal" title="Send Email"/>
+                                <connections>
+                                    <action selector="sendEmail" destination="FJg-FP-337" eventType="touchUpInside" id="YL2-BF-q7o"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fZg-HF-He4">
+                                <rect key="frame" x="306" y="427" width="30" height="30"/>
+                                <state key="normal" title="Text"/>
+                                <connections>
+                                    <action selector="sendMessage:" destination="FJg-FP-337" eventType="touchUpInside" id="f73-bn-ODn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Fwk-pj-Vn0" firstAttribute="trailing" secondItem="fZg-HF-He4" secondAttribute="trailing" constant="39" id="4sS-MF-WBx"/>
                             <constraint firstItem="H3x-ft-gms" firstAttribute="centerX" secondItem="hV9-3z-gMZ" secondAttribute="centerX" id="73r-1B-rQN"/>
                             <constraint firstItem="y7o-RS-KtV" firstAttribute="width" secondItem="9Gn-C2-KQy" secondAttribute="width" id="Adv-WQ-7CR"/>
                             <constraint firstItem="y7o-RS-KtV" firstAttribute="leading" secondItem="H3x-ft-gms" secondAttribute="leading" id="ERz-k8-g2m"/>
                             <constraint firstItem="H3x-ft-gms" firstAttribute="top" secondItem="y7o-RS-KtV" secondAttribute="bottom" constant="50" id="GCe-Bh-jVw"/>
+                            <constraint firstItem="Fwk-pj-Vn0" firstAttribute="bottom" secondItem="1sT-tx-6Bb" secondAttribute="bottom" constant="46" id="IR9-S7-6dp"/>
+                            <constraint firstItem="1sT-tx-6Bb" firstAttribute="top" secondItem="fZg-HF-He4" secondAttribute="bottom" constant="41" id="NqR-DX-t0p"/>
+                            <constraint firstItem="Fwk-pj-Vn0" firstAttribute="trailing" secondItem="1sT-tx-6Bb" secondAttribute="trailing" constant="5" id="RcD-Y0-6VR"/>
                             <constraint firstItem="H3x-ft-gms" firstAttribute="width" secondItem="9Gn-C2-KQy" secondAttribute="width" id="VuI-yK-gem"/>
                             <constraint firstItem="Fwk-pj-Vn0" firstAttribute="bottom" secondItem="H3x-ft-gms" secondAttribute="bottom" constant="50" id="ZX5-Ij-Agi"/>
                             <constraint firstItem="9Gn-C2-KQy" firstAttribute="leading" secondItem="Fwk-pj-Vn0" secondAttribute="leading" constant="51" id="iPV-nM-xOl"/>
@@ -436,7 +472,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D5h-tm-CGL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3960.8000000000002" y="-275.71214392803603"/>
+            <point key="canvasLocation" x="4569" y="-277"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="J1A-kH-tGN">
@@ -480,7 +516,6 @@
         <!--Contacts-->
         <scene sceneID="skK-Ju-zmR">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LSJ-Zl-ySg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZJp-a8-LtS" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Contacts" image="person.fill" catalog="system" selectedImage="person.fill" id="tj7-my-sHH"/>
                     <toolbarItems/>
@@ -497,23 +532,26 @@
                         <segue destination="blJ-2I-yRX" kind="relationship" relationship="rootViewController" id="hUO-LW-FqV"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LSJ-Zl-ySg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1572" y="556.37181409295351"/>
         </scene>
     </scenes>
     <resources>
-        <image name="BooniePic" width="819" height="1024"/>
-        <image name="ConnorPic" width="412" height="620"/>
+        <image name="BakkenPic" width="358" height="563"/>
+        <image name="BuskleinPic" width="426" height="548"/>
+        <image name="ConnorPic" width="485" height="684"/>
         <image name="KolandPic" width="3024" height="4032"/>
-        <image name="MasonPic" width="520" height="597"/>
+        <image name="MasonPic" width="367" height="717"/>
         <image name="SkiingPic" width="900" height="521"/>
+        <image name="WilliamsPic" width="362" height="468"/>
         <image name="circle" catalog="system" width="64" height="60"/>
         <image name="ellipsis" catalog="system" width="64" height="18"/>
         <image name="house.fill" catalog="system" width="64" height="52"/>
+        <image name="lightbulb" catalog="system" width="56" height="64"/>
         <image name="person.fill" catalog="system" width="64" height="60"/>
-        <image name="speaker.3.fill" catalog="system" width="64" height="44"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="R7c-g6-tav"/>
+        <segue reference="VI5-4c-c3G"/>
     </inferredMetricsTieBreakers>
 </document>

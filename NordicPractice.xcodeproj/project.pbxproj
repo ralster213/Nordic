@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D70C61532431215000488A47 /* vid.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = D70C615224311F6D00488A47 /* vid.mp4 */; };
 		D7272C31240D708600A0476E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7272C30240D708600A0476E /* AppDelegate.swift */; };
 		D7272C33240D708600A0476E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7272C32240D708600A0476E /* SceneDelegate.swift */; };
 		D7272C38240D708600A0476E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7272C36240D708600A0476E /* Main.storyboard */; };
@@ -16,10 +17,12 @@
 		D73A411724108212009C6756 /* ContactShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73A411624108212009C6756 /* ContactShowViewController.swift */; };
 		D789AC832417E23900000D81 /* Bruh.wav in Resources */ = {isa = PBXBuildFile; fileRef = D789AC812417E23900000D81 /* Bruh.wav */; };
 		D789AC842417E23900000D81 /* realBruhMusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = D789AC822417E23900000D81 /* realBruhMusic.wav */; };
+		D7914B2A241BD43B00B99C62 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7914B29241BD43B00B99C62 /* CloudKit.framework */; };
 		D7F7FACE241162710000A61D /* Things.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F7FACD241162710000A61D /* Things.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D70C615224311F6D00488A47 /* vid.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = vid.mp4; sourceTree = "<group>"; };
 		D7272C2D240D708600A0476E /* NordicPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NordicPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7272C30240D708600A0476E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7272C32240D708600A0476E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,6 +34,8 @@
 		D73A411624108212009C6756 /* ContactShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactShowViewController.swift; sourceTree = "<group>"; };
 		D789AC812417E23900000D81 /* Bruh.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Bruh.wav; sourceTree = "<group>"; };
 		D789AC822417E23900000D81 /* realBruhMusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = realBruhMusic.wav; sourceTree = "<group>"; };
+		D7914B27241BD43600B99C62 /* NordicPractice.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NordicPractice.entitlements; sourceTree = "<group>"; };
+		D7914B29241BD43B00B99C62 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		D7F7FACD241162710000A61D /* Things.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Things.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -39,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7914B2A241BD43B00B99C62 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +56,7 @@
 			children = (
 				D7272C2F240D708600A0476E /* NordicPractice */,
 				D7272C2E240D708600A0476E /* Products */,
+				D7914B28241BD43B00B99C62 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,12 +71,14 @@
 		D7272C2F240D708600A0476E /* NordicPractice */ = {
 			isa = PBXGroup;
 			children = (
+				D7914B27241BD43600B99C62 /* NordicPractice.entitlements */,
 				D7272C30240D708600A0476E /* AppDelegate.swift */,
 				D7272C32240D708600A0476E /* SceneDelegate.swift */,
 				D7272C36240D708600A0476E /* Main.storyboard */,
 				D73A41122410050E009C6756 /* ViewController.swift */,
 				D73A411624108212009C6756 /* ContactShowViewController.swift */,
 				D7F7FACD241162710000A61D /* Things.swift */,
+				D70C615224311F6D00488A47 /* vid.mp4 */,
 				D7272C39240D708900A0476E /* Assets.xcassets */,
 				D789AC812417E23900000D81 /* Bruh.wav */,
 				D789AC822417E23900000D81 /* realBruhMusic.wav */,
@@ -77,6 +86,14 @@
 				D7272C3E240D708900A0476E /* Info.plist */,
 			);
 			path = NordicPractice;
+			sourceTree = "<group>";
+		};
+		D7914B28241BD43B00B99C62 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D7914B29241BD43B00B99C62 /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +154,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D70C61532431215000488A47 /* vid.mp4 in Resources */,
 				D7272C3D240D708900A0476E /* LaunchScreen.storyboard in Resources */,
 				D789AC842417E23900000D81 /* realBruhMusic.wav in Resources */,
 				D789AC832417E23900000D81 /* Bruh.wav in Resources */,
@@ -300,6 +318,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = NordicPractice/NordicPractice.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 883DK65VTV;
 				ENABLE_BITCODE = NO;
@@ -319,6 +338,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = NordicPractice/NordicPractice.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 883DK65VTV;
 				ENABLE_BITCODE = NO;

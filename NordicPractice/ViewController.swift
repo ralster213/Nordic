@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import MessageUI
+import CloudKit
+import AVKit
 import AVFoundation
 class Captin {
     var name: String;
@@ -23,6 +26,13 @@ class Captin {
     }
     
 }
+//class Goal {
+//    var goal: String;
+//
+//    init(goal: String){
+//        self.goal = goal;
+//    }
+//}
 class Announce {
     var title: String;
     var time: String;
@@ -36,7 +46,7 @@ class Announce {
     
 }
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class ViewController: UIViewController, UITextFieldDelegate, MFMessageComposeViewControllerDelegate, UITableViewDelegate {
     
     @IBOutlet weak var nameLabel: UILabel?
     @IBOutlet weak var phoneNumberLabel: UILabel?
@@ -69,14 +79,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var bruhCounter: UILabel!
     
     var bruhCount = 0
-    static var announcements: Array<Announce> = []
+    static var goals: Array<String> = []
     static var captains: Array<Captin> = [
-    Captin(name: "Connor Holm", phoneNumber: "612-696-6969", picture: "ConnorPic", emailAddress: "connorholm@email.com"),
-    Captin(name: "Ethan Koland", phoneNumber: "612-696-6969", picture: "KolandPic", emailAddress: "ethankoland@email.com"),
-    Captin(name: "Mason Martin", phoneNumber: "612-696-6969", picture: "MasonPic", emailAddress: "masonmartin@email.com"),
-    Captin(name: "Ella Bakken", phoneNumber: "612-696-6969", picture: "ConnorPic", emailAddress: "ellabakken@email.com"),
-    Captin(name: "Silje Busklein", phoneNumber: "612-696-6969", picture: "fdsiofsd", emailAddress: "siljebusklein@email.com"),
-    Captin(name: "Ella Williams", phoneNumber: "612-696-6969", picture: "fdsiofsd", emailAddress: "ellawilliams@email.com")
+    Captin(name: "Connor Holm", phoneNumber: "612-254-5870", picture: "ConnorPic", emailAddress: "connorholm@email.com"),
+    Captin(name: "Ethan Koland", phoneNumber: "612-478-8080", picture: "KolandPic", emailAddress: "ethankoland@email.com"),
+    Captin(name: "Mason Martin", phoneNumber: "612-425-9535", picture: "MasonPic", emailAddress: "masonmartin@email.com"),
+    Captin(name: "Ella Bakken", phoneNumber: "612-696-6969", picture: "BakkenPic", emailAddress: "ellabakken@email.com"),
+    Captin(name: "Silje Busklein", phoneNumber: "612-696-6969", picture: "BuskleinPic", emailAddress: "siljebusklein@email.com"),
+    Captin(name: "Ella Williams", phoneNumber: "612-696-6969", picture: "WilliamsPic", emailAddress: "ellawilliams@email.com")
     ]
     
     override func viewDidLoad() {
@@ -102,8 +112,60 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     
     
-    
-    
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        switch (result) {
+            case .cancelled:
+                print("Message was cancelled")
+                dismiss(animated: true, completion: nil)
+            case .failed:
+                print("Message failed")
+                dismiss(animated: true, completion: nil)
+            case .sent:
+                print("Message was sent")
+                dismiss(animated: true, completion: nil)
+            default:
+            break
+        }
+    }
+    @IBAction func sendMessage(_ sender: Any) {
+        let messageVC = MFMessageComposeViewController()
+            
+        messageVC.body = "Enter a message";
+        messageVC.recipients = [MyVariables.capPhone]
+        messageVC.messageComposeDelegate = self
+            
+        self.present(messageVC, animated: true, completion: nil)
+    }
+    @IBAction func sendEmail() {
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            //mail.mailComposeDelegate = self
+            mail.setToRecipients([MyVariables.capEmail])
+            mail.setMessageBody("<p>You're so awesome!</p>", isHTML: true)
+
+            self.present(mail, animated: true)
+        } else {
+            // show failure alert
+        }
+    }
+
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    @IBAction func playVid(_ sender: Any) {
+        print("hi")
+       if let path = Bundle.main.path(forResource: "vid", ofType: "mp4"){
+        let video = AVPlayer(url: URL(fileURLWithPath: path))
+            let videoPlayer = AVPlayerViewController()
+            videoPlayer.player = video
+            print("hello")
+            present(videoPlayer, animated: true, completion: {
+                video.play()
+            })
+            
+        }
+       
+    }
     
 
     
@@ -261,7 +323,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         MyVariables.doStuff = true
     }
     
-    
+    @IBAction func deleteGoal(_ sender: Any) {
+        ViewController.goals.popLast()
+        print(ViewController.goals)
+    }
     @IBAction func AddMessage(_ sender: Any) {
         print("ok")
         
@@ -277,6 +342,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         nextField.resignFirstResponder()
+        ViewController.goals.append(nextField.text!)
+        print (ViewController.goals)
         let textField = UITextView(frame: CGRect(x: 10.0, y: 150 + 60 * YMessage, width: Double(UIScreen.main.bounds.size.width - 20.0), height: 50.0))
         textField.text = nextField.text
         self.view.addSubview(textField)
