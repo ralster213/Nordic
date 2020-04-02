@@ -5,7 +5,7 @@
 //  Created by 90305007 on 3/4/20.
 //  Copyright © 2020 90305007. All rights reserved.
 //
-
+import CoreData
 import UIKit
 import MessageUI
 import CloudKit
@@ -231,6 +231,8 @@ class ViewController: UIViewController, UITextFieldDelegate, MFMessageComposeVie
         
         
     }
+    //end of bruh button
+    
     @IBAction func Cap1Press(_ sender: Any) {
         //func captain1
         MyVariables.capCount = 1

@@ -19,6 +19,7 @@
 		D789AC842417E23900000D81 /* realBruhMusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = D789AC822417E23900000D81 /* realBruhMusic.wav */; };
 		D7914B2A241BD43B00B99C62 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7914B29241BD43B00B99C62 /* CloudKit.framework */; };
 		D7F7FACE241162710000A61D /* Things.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F7FACD241162710000A61D /* Things.swift */; };
+		D7FD9DD7243658CF0032E507 /* Data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D7FD9DD5243658CF0032E507 /* Data.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		D7914B27241BD43600B99C62 /* NordicPractice.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NordicPractice.entitlements; sourceTree = "<group>"; };
 		D7914B29241BD43B00B99C62 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		D7F7FACD241162710000A61D /* Things.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Things.swift; sourceTree = "<group>"; };
+		D7FD9DD6243658CF0032E507 /* Data.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Data.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			children = (
 				D7914B27241BD43600B99C62 /* NordicPractice.entitlements */,
 				D7272C30240D708600A0476E /* AppDelegate.swift */,
+				D7FD9DD5243658CF0032E507 /* Data.xcdatamodeld */,
 				D7272C32240D708600A0476E /* SceneDelegate.swift */,
 				D7272C36240D708600A0476E /* Main.storyboard */,
 				D73A41122410050E009C6756 /* ViewController.swift */,
@@ -171,6 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D73A41132410050E009C6756 /* ViewController.swift in Sources */,
+				D7FD9DD7243658CF0032E507 /* Data.xcdatamodeld in Sources */,
 				D7272C31240D708600A0476E /* AppDelegate.swift in Sources */,
 				D7F7FACE241162710000A61D /* Things.swift in Sources */,
 				D73A411724108212009C6756 /* ContactShowViewController.swift in Sources */,
@@ -376,6 +380,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D7FD9DD5243658CF0032E507 /* Data.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D7FD9DD6243658CF0032E507 /* Data.xcdatamodel */,
+			);
+			currentVersion = D7FD9DD6243658CF0032E507 /* Data.xcdatamodel */;
+			path = Data.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = D7272C25240D708600A0476E /* Project object */;
 }
