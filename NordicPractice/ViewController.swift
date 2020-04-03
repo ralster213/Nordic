@@ -52,7 +52,9 @@ class ViewController: UIViewController, UITextFieldDelegate, MFMessageComposeVie
     @IBOutlet weak var phoneNumberLabel: UILabel?
     @IBOutlet weak var emailAddressLabel: UILabel?
     @IBOutlet weak var picturePath: UIImageView!
-    
+    @IBOutlet weak var goalLabel: UILabel?
+    @IBOutlet weak var goal2Label: UILabel?
+    @IBOutlet weak var goal3Label: UILabel?
     @IBOutlet weak var cap1Look: UIButton!
     @IBOutlet weak var cap2Look: UIButton!
     @IBOutlet weak var cap3Look: UIButton!
@@ -77,9 +79,13 @@ class ViewController: UIViewController, UITextFieldDelegate, MFMessageComposeVie
     var audioPlayer2 = AVAudioPlayer()
     
     @IBOutlet weak var bruhCounter: UILabel!
+    let goal = UserDefaults.standard
     let goal1 = UserDefaults.standard
     let goal2 = UserDefaults.standard
     let goal3 = UserDefaults.standard
+    var Goal1 = ""
+    var Goal2 = ""
+    var Goal3 = ""
     var bruhCount = 0
     static var goals: Array<String> = []
     static var captains: Array<Captin> = [
@@ -94,15 +100,24 @@ class ViewController: UIViewController, UITextFieldDelegate, MFMessageComposeVie
     override func viewDidLoad() {
       // cap1Look.titleLabel?.text = ViewController.captains[0].name
         super.viewDidLoad()
-      
-        
+        if let text1 = goal1.object(forKey: "text1") as? String {
+            var word = goal1.object(forKey: "text1") as! String
+            goalLabel?.text = "Goal 1: " + word
+        }
+        if let text2 = goal2.object(forKey: "text2") as? String {
+            var word = goal2.object(forKey: "text2") as! String
+            goal2Label?.text = "Goal 2: " + word
+        }
+        if let text3 = goal3.object(forKey: "text3") as? String {
+            var word = goal3.object(forKey: "text3") as! String
+            goal3Label?.text = "Goal 3: " + word
+        }
         nameLabel?.text = "Name: " + MyVariables.capName
         phoneNumberLabel?.text = "Phone Number: " + MyVariables.capPhone
         emailAddressLabel?.text = "Email: " + MyVariables.capEmail
-        print(MyVariables.capPicture)
+        
         //picturePath.image = UIImage(named: "ConnorPic")
-        print("hola")
-        print(nameLabel?.text)
+        
         if(MyVariables.doStuff == true){
             
             picturePath.image = UIImage(named: MyVariables.capPicture)
@@ -328,18 +343,44 @@ class ViewController: UIViewController, UITextFieldDelegate, MFMessageComposeVie
     }
     
     @IBAction func deleteGoal(_ sender: Any) {
-        ViewController.goals.popLast()
-        print(ViewController.goals)
+        
     }
+    @IBAction func makeGoal1(_ sender: Any) {
+        goal1.setValue(nextField.text, forKey: "text1")
+        //nextField.text = ""
+        if let text1 = goal1.object(forKey: "text1") as? String {
+            print(goal1.object(forKey: "text1"))
+            var word = goal1.object(forKey: "text1") as! String
+            goalLabel?.text = "Goal 1: " + word
+        }
+    }
+    @IBAction func makeGoal2(_ sender: Any) {
+        goal2.setValue(nextField.text, forKey: "text2")
+        if let text2 = goal2.object(forKey: "text2") as? String {
+                print(goal2.object(forKey: "text2"))
+                var word = goal2.object(forKey: "text2") as! String
+            goal2Label?.text = "Goal 2: " + word
+            }
+        }
+    @IBAction func makeGoal3(_ sender: Any) {
+        goal3.setValue(nextField.text, forKey: "text3")
+        if let text3 = goal3.object(forKey: "text3") as? String {
+            print(goal3.object(forKey: "text3"))
+            var word = goal3.object(forKey: "text3") as! String
+            goal3Label?.text = "Goal 3: " + word
+        }
+    }
+    
     @IBAction func AddMessage(_ sender: Any) {
         nextField.backgroundColor = .red
         nextField.borderStyle = .line
         nextField.delegate = self
-        if let text = goal1.object(forKey: "text") as? String {
-            print(goal1.object(forKey: "text"))
-        } else{
-            print("nothing saved")
-        }
+//        if let text = goal1.object(forKey: "text") as? String {
+//            print(goal1.object(forKey: "text"))
+//            goalLabel?.text = goal1.object(forKey: "text") as! String
+//        } else{
+//            print("nothing saved")
+//        }
         self.view.addSubview(nextField)
         
         //here is where I will try to make it so whenever I make a new prototype-announcement, new constraints come in to resize everything in the content view. When the plus button is clicked, I want a text field to appear. In the text field will be the contents of the next announcement. The contents of the text field, upon hitting return, will be added to a list of strings, that will be given to a series of text views. The text views will be added in upon hitting return
@@ -347,17 +388,23 @@ class ViewController: UIViewController, UITextFieldDelegate, MFMessageComposeVie
         //Need to learn how to make the "return" key a function, so that it can add the text field text to the text view.
         
     }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         nextField.resignFirstResponder()
         ViewController.goals.append(nextField.text!)
         print (ViewController.goals)
-        let textField = UITextView(frame: CGRect(x: 10.0, y: 150 + 60 * YMessage, width: Double(UIScreen.main.bounds.size.width - 20.0), height: 50.0))
+        //let textField = UITextView(frame: CGRect(x: 10.0, y: 150 + 60 * YMessage, width: Double(UIScreen.main.bounds.size.width - 20.0), height: 50.0))
         textField.text = nextField.text
+        
         self.view.addSubview(textField)
-        nextField.text = ""
+        goal.setValue(nextField.text, forKey: "text")
+        if let text = goal.object(forKey: "text") as? String {
+        print(goal.object(forKey: "text"))
+        //goalLabel?.text = goal1.object(forKey: "text") as! String
+        }
+        
         nextField.isOpaque = true
         YMessage += 1
-        goal1.setValue(textField.text, forKey: "text")
         return true
         
     }
