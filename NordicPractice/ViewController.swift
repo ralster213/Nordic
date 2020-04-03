@@ -208,6 +208,7 @@ class ViewController: UIViewController, UITextFieldDelegate, MFMessageComposeVie
        //let
         
         if doStart == true{
+            audioPlayer2.stop()
             hitTheBruh.text = "Hit The Bruh Button!"
             bruhCount = 0
             timeCount.text = "Time: 10"
