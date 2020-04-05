@@ -64,6 +64,11 @@ class ViewController: UIViewController, UITextFieldDelegate, MFMessageComposeVie
     var pianoSound = NSURL(fileURLWithPath: Bundle.main.path(forResource: "Bruh", ofType: "wav")!);
     var YMessage = 0.0
     
+    
+    @IBOutlet weak var passwordLabel: UILabel!
+    
+    @IBOutlet weak var passwordField: UITextField!
+    
     var time = 10
     var nextField = UITextField(frame: CGRect(x: 10.0, y: 100.0, width: UIScreen.main.bounds.size.width - 20.0, height: 50.0))
     var highScore = 0
@@ -168,6 +173,17 @@ class ViewController: UIViewController, UITextFieldDelegate, MFMessageComposeVie
 
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true, completion: nil)
+    }
+    //start of bruh button
+    //wtf why is this being weird
+    @IBAction func openBruh(_ sender: Any) {
+        if passwordField.text == "Hit em with the bruh button"{
+            self.view.endEditing(true)
+            performSegue(withIdentifier: "ToBruhButton", sender: UIButton.self)
+        } else{
+            passwordLabel.text!.append("nice try, go again")
+            self.view.endEditing(true)
+        }
     }
     @IBAction func playVid(_ sender: Any) {
         print("hi")
@@ -389,8 +405,8 @@ class ViewController: UIViewController, UITextFieldDelegate, MFMessageComposeVie
         //Need to learn how to make the "return" key a function, so that it can add the text field text to the text view.
         
     }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
         nextField.resignFirstResponder()
         ViewController.goals.append(nextField.text!)
         print (ViewController.goals)
