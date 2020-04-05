@@ -175,7 +175,7 @@ class ViewController: UIViewController, UITextFieldDelegate, MFMessageComposeVie
         controller.dismiss(animated: true, completion: nil)
     }
     //start of bruh button
-    
+    //wtf why is this being weird
     @IBAction func openBruh(_ sender: Any) {
         if passwordField.text == "Hit em with the bruh button"{
             self.view.endEditing(true)
