@@ -9,6 +9,7 @@ import CoreData
 import UIKit
 import MessageUI
 import CloudKit
+import WebKit
 import AVKit
 import AVFoundation
 class Captin {
@@ -48,6 +49,7 @@ class Announce {
 
 class ViewController: UIViewController, UITextFieldDelegate, MFMessageComposeViewControllerDelegate, UITableViewDelegate {
     
+    @IBOutlet weak var webkit: WKWebView?
     @IBOutlet weak var nameLabel: UILabel?
     @IBOutlet weak var phoneNumberLabel: UILabel?
     @IBOutlet weak var emailAddressLabel: UILabel?
@@ -105,6 +107,9 @@ class ViewController: UIViewController, UITextFieldDelegate, MFMessageComposeVie
     override func viewDidLoad() {
       // cap1Look.titleLabel?.text = ViewController.captains[0].name
         super.viewDidLoad()
+        let url = URL(string: "https://sites.google.com/site/epnordic/home")
+        let request = URLRequest(url:url!)
+        webkit?.load(request)
         if let text1 = goal1.object(forKey: "text1") as? String {
             var word = goal1.object(forKey: "text1") as! String
             goalLabel?.text = "Goal 1: " + word

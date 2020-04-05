@@ -10,7 +10,7 @@
         <!--Announcements-->
         <scene sceneID="LeF-q7-qmC">
             <objects>
-                <viewController id="vwK-iT-Bf0" sceneMemberID="viewController">
+                <viewController id="vwK-iT-Bf0" customClass="ViewController" customModule="NordicPractice" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8EU-c0-eid">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,15 +26,27 @@
                                     <navigationItem title="Announcements" id="Ydh-gy-z91"/>
                                 </items>
                             </navigationBar>
+                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WjK-iH-hZq">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ned-p6-06H"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Announcements" image="envelope.fill" catalog="system" selectedImage="envelope.fill" id="DZP-PI-38B"/>
+                    <connections>
+                        <outlet property="webkit" destination="WjK-iH-hZq" id="GnE-d4-hLv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kO5-Qi-Jbo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-548" y="555"/>
+            <point key="canvasLocation" x="-548" y="554.57271364317842"/>
         </scene>
         <!--Goals-->
         <scene sceneID="HPk-at-7RU">
@@ -178,7 +190,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to EP Nordic!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h85-4O-EYd">
-                                <rect key="frame" x="12" y="60" width="351" height="45.5"/>
+                                <rect key="frame" x="12" y="-461" width="351" height="45.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45.5" id="XiZ-kJ-EgO"/>
                                 </constraints>
@@ -198,7 +210,7 @@
                                 </items>
                             </navigationBar>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SkiingPic" translatesAutoresizingMaskIntoConstraints="NO" id="D7Z-kq-vBe">
-                                <rect key="frame" x="0.0" y="97" width="375" height="521"/>
+                                <rect key="frame" x="0.0" y="-424" width="375" height="1042"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ijJ-hi-Lr0">
                                 <rect key="frame" x="72" y="165" width="235" height="30"/>
