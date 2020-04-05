@@ -11,6 +11,8 @@ import MessageUI
 import CloudKit
 import AVKit
 import AVFoundation
+
+// MARK: Captin Class
 class Captin {
     var name: String;
     var phoneNumber: String;
@@ -33,6 +35,9 @@ class Captin {
 //        self.goal = goal;
 //    }
 //}
+
+
+//MARK: Announce Class
 class Announce {
     var title: String;
     var time: String;
@@ -48,6 +53,8 @@ class Announce {
 
 class ViewController: UIViewController, UITextFieldDelegate, MFMessageComposeViewControllerDelegate, UITableViewDelegate {
     
+    
+    //MARK: UI Decleration
     @IBOutlet weak var nameLabel: UILabel?
     @IBOutlet weak var phoneNumberLabel: UILabel?
     @IBOutlet weak var emailAddressLabel: UILabel?
@@ -61,33 +68,39 @@ class ViewController: UIViewController, UITextFieldDelegate, MFMessageComposeVie
     @IBOutlet weak var cap4Look: UIButton!
     @IBOutlet weak var cap5Look: UIButton!
     @IBOutlet weak var cap6Look: UIButton!
+    @IBOutlet weak var passwordLabel: UILabel!
+    @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var timeCount: UILabel!
+    @IBOutlet weak var hitTheBruh: UILabel!
+    @IBOutlet weak var highScoreLabel: UILabel!
+    @IBOutlet weak var bruhCounter: UILabel!
+    
+    
+    
+    //MARK: Vars
     var pianoSound = NSURL(fileURLWithPath: Bundle.main.path(forResource: "Bruh", ofType: "wav")!);
     var YMessage = 0.0
-    
-    
-    @IBOutlet weak var passwordLabel: UILabel!
-    
-    @IBOutlet weak var passwordField: UITextField!
-    
+
     var time = 10
     var nextField = UITextField(frame: CGRect(x: 10.0, y: 100.0, width: UIScreen.main.bounds.size.width - 20.0, height: 50.0))
     var highScore = 0
     var doStart = true
     var countBruh = false
     
-    @IBOutlet weak var timeCount: UILabel!
-    @IBOutlet weak var hitTheBruh: UILabel!
-    @IBOutlet weak var highScoreLabel: UILabel!
+    
     
     var audioPlayer = AVAudioPlayer()
    
     var audioPlayer2 = AVAudioPlayer()
     
-    @IBOutlet weak var bruhCounter: UILabel!
     let goal = UserDefaults.standard
+    
     let goal1 = UserDefaults.standard
+    
     let goal2 = UserDefaults.standard
+    
     let goal3 = UserDefaults.standard
+    
     var Goal1 = ""
     var Goal2 = ""
     var Goal3 = ""
@@ -132,6 +145,8 @@ class ViewController: UIViewController, UITextFieldDelegate, MFMessageComposeVie
         // Do any additional setup after loading the view.
     }
     
+    
+    //MARK: Captain
     
     
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
