@@ -20,7 +20,68 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CfB-8i-72m" userLabel="ContentView">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="574"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="XGx-ka-LSG">
+                                                <rect key="frame" x="26" y="400" width="300" height="91.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Goal 1: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uKZ-Vj-LsP" userLabel="Goal 1 Label">
+                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Goal 2: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k4z-MY-O3W" userLabel="Goal 2 Label">
+                                                        <rect key="frame" x="0.0" y="35.5" width="300" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Goal 3: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pxQ-Rr-OJn" userLabel="Goal 3 Label">
+                                                        <rect key="frame" x="0.0" y="71" width="300" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="300" id="gus-FK-4Cz"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="egZ-Ld-Sd4">
+                                                <rect key="frame" x="12" y="242" width="86" height="130"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UTx-MP-xzT">
+                                                        <rect key="frame" x="0.0" y="0.0" width="86" height="30"/>
+                                                        <state key="normal" title="Make Goal 1"/>
+                                                        <connections>
+                                                            <action selector="makeGoal1:" destination="zcK-gg-yEn" eventType="touchUpInside" id="gMy-vB-cCF"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i3h-kw-Vqd">
+                                                        <rect key="frame" x="0.0" y="50" width="86" height="30"/>
+                                                        <state key="normal" title="Make Goal 2"/>
+                                                        <connections>
+                                                            <action selector="makeGoal2:" destination="zcK-gg-yEn" eventType="touchUpInside" id="t9J-8G-WFK"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="suv-4f-Jg6">
+                                                        <rect key="frame" x="0.0" y="100" width="86" height="30"/>
+                                                        <state key="normal" title="Make Goal 3"/>
+                                                        <connections>
+                                                            <action selector="makeGoal3:" destination="zcK-gg-yEn" eventType="touchUpInside" id="yI6-cJ-tfX"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="XGx-ka-LSG" firstAttribute="top" secondItem="egZ-Ld-Sd4" secondAttribute="bottom" constant="28" id="8xo-oI-OqQ"/>
+                                            <constraint firstAttribute="bottom" secondItem="XGx-ka-LSG" secondAttribute="bottom" constant="82.5" id="CVe-6b-Fhm"/>
+                                            <constraint firstItem="XGx-ka-LSG" firstAttribute="leading" secondItem="CfB-8i-72m" secondAttribute="leading" constant="26" id="QL1-AY-vrE"/>
+                                            <constraint firstAttribute="trailing" secondItem="egZ-Ld-Sd4" secondAttribute="trailing" constant="277" id="gAZ-zZ-tDx"/>
+                                            <constraint firstItem="egZ-Ld-Sd4" firstAttribute="leading" secondItem="CfB-8i-72m" secondAttribute="leading" constant="12" id="oKo-Dh-td2"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -69,6 +130,11 @@
                         <viewLayoutGuide key="safeArea" id="b28-if-Ke5"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Goals" image="lightbulb" catalog="system" selectedImage="lightbulb" id="Uvi-UB-RsB"/>
+                    <connections>
+                        <outlet property="goal2Label" destination="k4z-MY-O3W" id="ylW-Ux-9y6"/>
+                        <outlet property="goal3Label" destination="pxQ-Rr-OJn" id="TIK-5d-RD4"/>
+                        <outlet property="goalLabel" destination="uKZ-Vj-LsP" id="Xgb-me-OCe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oTq-oT-Vx4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
