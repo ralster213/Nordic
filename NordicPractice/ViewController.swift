@@ -19,7 +19,7 @@ class Captin {
     var phoneNumber: String;
     var picture: String;
     var emailAddress: String;
-    
+    var hi = "hi"
     
     init(name: String, phoneNumber: String, picture: String, emailAddress: String) {
         self.name = name;
