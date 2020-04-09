@@ -114,7 +114,7 @@ class ViewController: UIViewController, UITextFieldDelegate, MFMessageComposeVie
     Captin(name: "Silje Busklein", phoneNumber: "612-696-6969", picture: "BuskleinPic", emailAddress: "siljebusklein@email.com"),
     Captin(name: "Ella Williams", phoneNumber: "612-696-6969", picture: "WilliamsPic", emailAddress: "ellawilliams@email.com")
     ]
-    
+    //This is a comment to see if ethan can see my commit
     override func viewDidLoad() {
       // cap1Look.titleLabel?.text = ViewController.captains[0].name
         super.viewDidLoad()
