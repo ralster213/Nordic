@@ -14,7 +14,6 @@
 		D7272C3A240D708900A0476E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7272C39240D708900A0476E /* Assets.xcassets */; };
 		D7272C3D240D708900A0476E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7272C3B240D708900A0476E /* LaunchScreen.storyboard */; };
 		D73A41132410050E009C6756 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73A41122410050E009C6756 /* ViewController.swift */; };
-		D73A411724108212009C6756 /* ContactShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73A411624108212009C6756 /* ContactShowViewController.swift */; };
 		D789AC832417E23900000D81 /* Bruh.wav in Resources */ = {isa = PBXBuildFile; fileRef = D789AC812417E23900000D81 /* Bruh.wav */; };
 		D789AC842417E23900000D81 /* realBruhMusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = D789AC822417E23900000D81 /* realBruhMusic.wav */; };
 		D7914B2A241BD43B00B99C62 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7914B29241BD43B00B99C62 /* CloudKit.framework */; };
@@ -32,7 +31,6 @@
 		D7272C3C240D708900A0476E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D7272C3E240D708900A0476E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D73A41122410050E009C6756 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D73A411624108212009C6756 /* ContactShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactShowViewController.swift; sourceTree = "<group>"; };
 		D789AC812417E23900000D81 /* Bruh.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Bruh.wav; sourceTree = "<group>"; };
 		D789AC822417E23900000D81 /* realBruhMusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = realBruhMusic.wav; sourceTree = "<group>"; };
 		D7914B27241BD43600B99C62 /* NordicPractice.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NordicPractice.entitlements; sourceTree = "<group>"; };
@@ -79,7 +77,6 @@
 				D7272C32240D708600A0476E /* SceneDelegate.swift */,
 				D7272C36240D708600A0476E /* Main.storyboard */,
 				D73A41122410050E009C6756 /* ViewController.swift */,
-				D73A411624108212009C6756 /* ContactShowViewController.swift */,
 				D7F7FACD241162710000A61D /* Things.swift */,
 				D70C615224311F6D00488A47 /* vid.mp4 */,
 				D7272C39240D708900A0476E /* Assets.xcassets */,
@@ -177,7 +174,6 @@
 				D7FD9DD7243658CF0032E507 /* Data.xcdatamodeld in Sources */,
 				D7272C31240D708600A0476E /* AppDelegate.swift in Sources */,
 				D7F7FACE241162710000A61D /* Things.swift in Sources */,
-				D73A411724108212009C6756 /* ContactShowViewController.swift in Sources */,
 				D7272C33240D708600A0476E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
